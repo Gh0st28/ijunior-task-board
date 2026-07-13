@@ -1,32 +1,47 @@
 import { OrdemDeServico, Status } from "../types";
 import { ChangeEvent } from "react";
 
+//Atributos de cada card de ordem abaixo do form
 interface Props {
     ordem: OrdemDeServico;
     onMudarStatus: (id: number, novoStatus: Status) => void;
 }
 
+//Determinação da cor atribuída ao fundo da atribuição de status de cada ordem
 const corStatus: { [key in Status]: string } = {
     "Aberto": "bg-red-500",
     "Em andamento": "bg-yellow-500",
     "Concluído": "bg-green-500",
 };
 
+//Determinação e display da ordem dos cards na página
 export default function OrdemCard({ ordem, onMudarStatus }: Props) {
     return (
         <div className="bg-zinc-800 rounded-xl p-4 flex flex-col gap-3 shadow-md">
             <div classname="flex items-center justify-between">
+
+                //Escrita do título do card
                 <h2 className="text-white font-semibold text-lg">{ordem.titulo}</h2>
+                
+                //Escrita do status do card, com a cor de fundo determinada por corStatus
                 <span
                     className={`text-white text-xs px-2 py-1 rounded-full ${corStatus[ordem.status]}`}
                     >{ordem.status}
                 </span>
             </div>
+
+            //Escrita da descrição do card
             <p className="text-zinc-400 text-sm">{ordem.descricao}</p>
             <div className="text-zinc-500 text-xs flex justify-between">
+
+                //Escrita do responsável
                 <span>Responsável: {ordem.responsavel}</span>
+                
+                //Escrita da data
                 <span>Data: {ordem.criadaEm}</span>
             </div>
+
+            //Mudança de status com mudança de fundo correspondente
             <select
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 mt-1"
                 value={ordem.status}
