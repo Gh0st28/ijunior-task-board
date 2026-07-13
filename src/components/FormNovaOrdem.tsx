@@ -1,22 +1,30 @@
 import { useState, ChangeEvent } from "react";
 import { OrdemDeServico, Status } from "../types";
 
+//Interface para as informações esperadas
 interface Props {
     onAdicionar: (ordem: OrdemDeServico) => void;
 }
 
+//Formulário para criação de nova ordem
 export default function FormNovaOrdem({ onAdicionar }: Props) {
+
+    //Definições iniciais
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
     const [responsavel, setResponsavel] = useState("");
     const [status, setStatus] = useState<Status>("Aberto");
 
+    //Função que lida com a submissão de novas ordens
     function handleSubmit() {
+
+        //Alerta caso algum item obrigatório (marcado na página com *) esteja faltando
         if (!titulo || !responsavel) {
             alert("Título e responsável são obrigatórios");
             return;
         }
-
+        
+        //Construção de uma nova ordem a partir do template de OrdemDeServico
         const novaOrdem: OrdemDeServico = {
             id: Date.now(),
             titulo,
@@ -26,8 +34,10 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
             criadaEm: new Date().toLocaleDateString("pt-BR"),
         };
 
+        //Passa os dados para App.tsx
         onAdicionar(novaOrdem);
 
+        //Reseta os campos do formulário
         setTitulo("");
         setDescricao("");
         setResponsavel("");
@@ -35,14 +45,19 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
     }
 
     return (
+
+        //Estrutura do form
         <div className="bg-zinc-800 rounded-xl p-6 flex flex-col gap-4 shadow-md">
+
             <h2 className="text-white font-semibold text-lg">Nova ordem de serviço</h2>
+
             <input
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400"
                 placeholder="Título *"
                 value={titulo}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setTitulo(e.target.value)}
             />
+
             <textarea
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400 resize-none"
                 placeholder="Descrição (opcional)"
@@ -50,12 +65,14 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
                 value={descricao}
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setDescricao(e.target.value)}
             />
+
             <input
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400"
                 placeholder="Resposável *"
                 value={responsavel}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setResponsavel(e.target.value)}
             />
+
             <select
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2"
                 value={status}

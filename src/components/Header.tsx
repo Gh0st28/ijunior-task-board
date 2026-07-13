@@ -1,3 +1,5 @@
+//Header da página, estático.
+
 export default function Header() {
     return (
         <header className="bg-zinc-900 border-b border-zinc-700 px-6 py-4">
