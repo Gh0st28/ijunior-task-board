@@ -48,10 +48,9 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
 
         //Estrutura do form
         <div className="bg-zinc-800 rounded-xl p-6 flex flex-col gap-4 shadow-md">
-            //Título do form
+
             <h2 className="text-white font-semibold text-lg">Nova ordem de serviço</h2>
 
-            //Espaço monolinha de input para o título (obrigatório)
             <input
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400"
                 placeholder="Título *"
@@ -59,7 +58,6 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setTitulo(e.target.value)}
             />
 
-            //Espaço multi-linha de input para a descrição (opcional)
             <textarea
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400 resize-none"
                 placeholder="Descrição (opcional)"
@@ -68,7 +66,6 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setDescricao(e.target.value)}
             />
 
-            //Espaço monolinha de input para o responsável
             <input
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400"
                 placeholder="Resposável *"
@@ -76,7 +73,6 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setResponsavel(e.target.value)}
             />
 
-            //Menu dropdown para a atribuição de status da ordem
             <select
                 className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2"
                 value={status}
@@ -87,7 +83,6 @@ export default function FormNovaOrdem({ onAdicionar }: Props) {
                 <option value="Concluído">Concluído</option>
             </select>
 
-            //Botão que adiciona ordem à lista
             <button
                 className="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors"
                 onClick={handleSubmit}

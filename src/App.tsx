@@ -23,14 +23,11 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-900">
 
-      //Header da página
       <Header />
       <main className="max-w-4xl mx-auto px-4 py-8 flex flex-col gap-6">
-        
-        //Form para criação de novas ordens
+
         <FormNovaOrdem onAdicionar={adicionarOrdem} />
         
-        //Listagem de ordens
         {ordens.length === 0 ? (
 
           //Texto caso não tenham ordens ainda
