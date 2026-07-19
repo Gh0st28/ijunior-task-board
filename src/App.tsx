@@ -6,7 +6,7 @@ import ServiceOrders from './pages/ServiceOrders'
 
 export default function App() {
   return (
-    <div ClassName="min-h-screen bg-zinc-900">
+    <div className="min-h-screen bg-zinc-900">
       <Header />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <Routes>

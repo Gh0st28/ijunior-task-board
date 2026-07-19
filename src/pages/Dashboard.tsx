@@ -10,7 +10,7 @@ export default function Dashboard() {
         async function fetchOrders() {
             try {
                 const data = await getAllServiceOrder()
-                setOrders.data
+                setOrders(data)
             } catch (error) {
                 console.error('Erro encontrado ao buscar ordens:', error)
             } finally {
