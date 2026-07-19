@@ -12,5 +12,5 @@ export async function createServiceOrder(data: CreateServiceOrderData): Promise<
 }
 
 export async function deleteServiceOrder(id: number): Promise<void> {
-    await api.delete(` /service-orders/${id} `);
+    await api.delete(`/service-orders/${id} `);
 }

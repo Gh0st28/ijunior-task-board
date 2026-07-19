@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react'
 import { Client, CreateClientData } from '../types/index'
-import {getAllClients, createClient, deleteClient } from '../services/clientService'
+import { getAllClients, createClient, deleteClient } from '../services/clientService'
 
 export default function Clients() {
     const [clients, setClients] = useState<Client[]>([])
@@ -56,23 +56,29 @@ export default function Clients() {
     return (
         <div className="flex flex-col gap-6">
             <h2 className="text-white text-xl font-semibold">Clientes</h2>
-            <div className="bg-zinc-800 rouded-xl p-6 flex flec-col gap-4">
-                <h3 cassName="text-white font-semibold">Novo cliente</h3>
+            <div className="bg-zinc-800 rounded-xl p-6 flex flex-col gap-4">
+                <h3 className="text-white font-semibold">Novo cliente</h3>
                 <input
-                    className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400"
+                    className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400 flex-1"
                     placeholder="Nome *"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
                 <input
-                    className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400"
+                    className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400 flex-1"
+                    placeholder="Telefone *"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                />
+                <input
+                    className="bg-zinc-700 text-white text-sm rounded-lg px-3 py-2 placeholder-zinc-400 flex-1"
                     placeholder="Email *"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <button
                     className="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 transition-colors self-end"
-                    onClieck={handleCreate}
+                    onClick={handleCreate}
                 >
                     Cadastrar
                 </button>

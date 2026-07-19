@@ -12,5 +12,5 @@ export async function createClient(data: CreateClientData): Promise<void> {
 }
 
 export async function deleteClient(id: number): Promise<void> {
-    await api.delete(` /clients/${id}` );
+    await api.delete(`/clients/${id}` );
 }
