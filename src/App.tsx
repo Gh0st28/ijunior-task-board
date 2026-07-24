@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import Clients from './pages/Clients'
 import ServiceOrders from './pages/ServiceOrders'
+import React from 'react'
 
 export default function App() {
   return (

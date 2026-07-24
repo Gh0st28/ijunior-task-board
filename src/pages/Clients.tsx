@@ -1,6 +1,7 @@
-import {useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Client, CreateClientData } from '../types/index'
 import { getAllClients, createClient, deleteClient } from '../services/clientService'
+import React from 'react'
 
 export default function Clients() {
     const [clients, setClients] = useState<Client[]>([])

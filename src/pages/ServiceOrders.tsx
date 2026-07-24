@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Client, ServiceOrder, CreateServiceOrderData } from '../types/index'
 import { getAllServiceOrder, createServiceOrder, deleteServiceOrder } from '../services/serviceOrderService'
 import { getAllClients } from '../services/clientService'
+import React from 'react'
 
 export default function ServiceOrders() {
     const [orders, setOrders] = useState<ServiceOrder[]>([])

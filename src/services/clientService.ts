@@ -7,8 +7,7 @@ export async function getAllClients(): Promise<Client[]> {
 }
 
 export async function createClient(data: CreateClientData): Promise<void> {
-    const response = await api.post<Client>('/clients', data);
-    return response.data;
+   await api.post<Client>('/clients', data);
 }
 
 export async function deleteClient(id: number): Promise<void> {
