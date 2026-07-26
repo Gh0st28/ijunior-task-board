@@ -1,0 +1,154 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: api-tarefas
+meta:
+  id: wrk_9c60680771ac4b3480b0601100a4bcd4
+  created: 1785039281796
+  modified: 1785039281796
+  description: ""
+collection:
+  - url: http://localhost:3333/tasks
+    name: GET /tasks
+    meta:
+      id: req_7517f4ad4e3a4a5bb2362566abad7161
+      created: 1785039298985
+      modified: 1785040386265
+      isPrivate: false
+      description: ""
+      sortKey: -1785040182800
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.6.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3333/tasks/750057
+    name: GET /tasks/:id
+    meta:
+      id: req_de07037ada3147e8b7692cc9a08ed3f0
+      created: 1785039940236
+      modified: 1785040405226
+      isPrivate: false
+      description: ""
+      sortKey: -1785040182775
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.6.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3333/tasks
+    name: POST /tasks
+    meta:
+      id: req_b39e57f482d54805a214695b306d20dd
+      created: 1785040012433
+      modified: 1785040382937
+      isPrivate: false
+      description: ""
+      sortKey: -1785040182850
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Primeira tarefa"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.6.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3333/tasks/750057
+    name: PUT /tasks/:id
+    meta:
+      id: req_4e3a556d4ade477ea7e98a1295872b00
+      created: 1785040091116
+      modified: 1785040419318
+      isPrivate: false
+      description: ""
+      sortKey: -1785040182762.5
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Tarefa atualizada",
+        	"completed": true
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.6.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3333/tasks/750057
+    name: DELETE /tasks/:id
+    meta:
+      id: req_2d11603e566f4fd49696068f550eda7b
+      created: 1785040182750
+      modified: 1785040440486
+      isPrivate: false
+      description: ""
+      sortKey: -1785040182750
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.6.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_4a55b974fb1ddf30ce244283bda6ab6c2137965b
+    created: 1785039281798
+    modified: 1785039281798
+environments:
+  name: Base Environment
+  meta:
+    id: env_4a55b974fb1ddf30ce244283bda6ab6c2137965b
+    created: 1785039281797
+    modified: 1785039281797
+    isPrivate: false
