@@ -1,45 +1,47 @@
 import { Request, Response } from 'express';
-import { getAllTasks, getTaskById, createTask, updateTask, deleteTask } from '../services/taskService';
+import { getAll, getById, createTask, updateTask, deleteTask } from '../services/taskService';
 
-export function index(req: Request, res: Response): void {
-    const tasks = getAllTasks();
+export async function index(req: Request, res: Response): Promise<void> {
+    const tasks = await getAll();
     res.status(200).json(tasks);
 }
 
-export function show(req: Request, res: Response): void {
-    const task = getTaskById(String(req.params.id));
+export async function show(req: Request, res: Response): Promise<void> {
+    const id = Number(req.params.id);
+    const task = await getById(id);
     if (!task) {
-        res.status(404).json({ mensagem: 'Tarefa não encontrada' });
+        res.status(404).json({mensagem: 'Tarefa não encontrada' });
         return;
     }
-    res.status(200).json(task);
 }
 
-export function store(req: Request, res: Response): void {
+export async function store(req: Request, res: Response): Promise<void> {
     const { title } = req.body;
     if (!title) {
         res.status(400).json({ mensagem: 'O título é obrigatório' });
         return;
     }
-    const task = createTask(title);
+    const task = await createTask(title);
     res.status(201).json(task);
 }
 
-export function update(req: Request, res: Response): void {
+export async function update(req: Request, res: Response): Promise<void> {
+    const id = Number(req.params.id);
     const { title, completed } = req.body;
-    const task = updateTask(String(req.params.id), title, completed);
-    if (!task) {
+    try {
+        const task = await updateTask(id, title, completed);
+        res.status(200).json(task);
+    } catch {
         res.status(404).json({ mensagem: 'Tarefa não encontrada' });
-        return;
     }
-    res.status(200).json(task);
 }
 
-export function destroy(req: Request, res: Response): void {
-    const deleted = deleteTask(String(req.params.id));
-    if (!deleted) {
+export async function destroy(req: Request, res: Response): Promise<void> {
+    const id = Number(req.params.id);
+    try {
+        await deleteTask(id);
+        res.status(204).send();
+    } catch {
         res.status(404).json({ mensagem: 'Tarefa não encontrada' });
-        return;
     }
-    res.status(204).send();
 }
