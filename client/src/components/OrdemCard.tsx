@@ -15,7 +15,7 @@ const corStatus: { [key in Status]: string } = {
 export default function OrdemCard({ ordem, onMudarStatus }: Props) {
     return (
         <div className="bg-zinc-800 rounded-xl p-4 flex flex-col gap-3 shadow-md">
-            <div classname="flex items-center justify-between">
+            <div className="flex items-center justify-between">
                 <h2 className="text-white font-semibold text-lg">{ordem.titulo}</h2>
                 <span
                     className={`text-white text-xs px-2 py-1 rounded-full ${corStatus[ordem.status]}`}

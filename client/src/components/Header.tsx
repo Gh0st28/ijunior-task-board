@@ -15,7 +15,7 @@ export default function Header() {
                 <Link to="/" className="text-zinc-300 hover:text-white text-sm transition-colors">
                     Dashboard
                 </Link>
-                <Link to="/Clients" className="text-zinc-300 hover:text-white text-sm transition-colors">
+                <Link to="/clients" className="text-zinc-300 hover:text-white text-sm transition-colors">
                     Clientes
                 </Link>
                 <Link to="/service-orders" className="text-zinc-300 hover:text-white text-sm transition-colors">

@@ -11,7 +11,8 @@ export async function show(req: Request, res: Response): Promise<void> {
     const task = await getById(id);
     if (!task) {
         res.status(404).json({mensagem: 'Tarefa não encontrada' });
-        return;
+    } else {
+        res.status(200).json(task);
     }
 }
 

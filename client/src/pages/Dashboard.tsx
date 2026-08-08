@@ -36,7 +36,7 @@ export default function Dashboard() {
                                 <span className="text-white font-semibold">{order.device}</span>
                                 <span className={`text-xs px-2 py-1 rounded-full text-white ${
                                     order.status === 'done' ? 'bg-green-500' :
-                                    order.status === 'in_process' ? 'bg-yellow-500' :
+                                    order.status === 'in_progress' ? 'bg-yellow-500' :
                                     'bg-red-500'
                                 }`}>
                                     {order.status}
