@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import { index, show, store, update, destroy } from '../controllers/taskController';
 
-const router = Router();
+const taskRouter = Router();
 
-router.get('/', index);
-router.get('/:id', show);
-router.post('/', store);
-router.put('/:id', update);
-router.delete('/:id', destroy);
+taskRouter.get('/', index);
+taskRouter.get('/:id', show);
+taskRouter.post('/', store);
+taskRouter.put('/:id', update);
+taskRouter.delete('/:id', destroy);
 
-export default router;
+export default taskRouter;

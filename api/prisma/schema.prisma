@@ -28,7 +28,7 @@ model Client {
   id            Int    @id @default(autoincrement())
   name          String
   phone         String
-  emails        String
+  email         String
   serviceOrders ServiceOrder[]
 }
 

@@ -66,7 +66,7 @@ export default function ServiceOrders() {
     function clientName(id: number): string {
         const client = clients.find((c) => c.id === id)
         if (client) return client.name
-        return "Cliente não reconhecido"
+        return 'Cliente não reconhecido'
     }
     return (
         <div className="flex flex-col gap-6">
@@ -126,7 +126,7 @@ export default function ServiceOrders() {
                             <div className="flex flex-col gap-1">
                                 <span className="text-white font-semibold">{order.device}</span>
                                 <span className="text-zinc-400 text-sm">{order.issue}</span>
-                                <span className="text-zinc-500 text-xs">Cliente: {clientName(order.client_id)}</span>
+                                <span className="text-zinc-500 text-xs">Cliente: {clientName(order.clientId)}</span>
                                 <span className={`text-xs px-2 py-1 rounded-full text-white w-fit ${
                                     order.status === 'done' ? 'bg-green-500' :
                                     order.status === 'in_progress' ? 'bg-yellow-500' :

@@ -2,11 +2,11 @@ import { Router } from "express";
 import { register, login, logout, me } from "../controllers/authController";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
-const router = Router();
+const authRouter = Router();
 
-router.post('/register', register);
-router.post('/login', login);
-router.post('/logout', logout);
-router.get('/me', authMiddleware, me);
+authRouter.post('/register', register);
+authRouter.post('/login', login);
+authRouter.post('/logout', logout);
+authRouter.get('/me', authMiddleware, me);
 
-export default router;
+export default authRouter;

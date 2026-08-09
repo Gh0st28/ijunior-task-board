@@ -43,7 +43,7 @@ export default function Dashboard() {
                                 </span>
                             </div>
                             <p className="text-zinc-400 text-sm">{order.issue}</p>
-                            <p className="text-zinc-500 text-xs">Data: {order.created_at}</p>
+                            <p className="text-zinc-500 text-xs">Data: {order.createdAt}</p>
                         </div>
                     ))}
                 </div>

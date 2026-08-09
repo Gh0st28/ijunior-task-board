@@ -1,8 +1,11 @@
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route, Outlet, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import Clients from './pages/Clients'
 import ServiceOrders from './pages/ServiceOrders'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import PrivateRoute from './components/PrivateRoute'
 
 function Layout() {
   return (
@@ -18,11 +21,18 @@ function Layout() {
 export default function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/clients" element={<Clients />} />
-        <Route path="/service-orders" element={<ServiceOrders />} />
+      <Route path='/login' element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route element={
+        <PrivateRoute>
+          <Layout />
+        </PrivateRoute>
+      }>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/clients' element={<Clients />} />
+        <Route path='/service-orders' element={<ServiceOrders />} />
       </Route>
+      <Route path="*" element={<Navigate to='/' replace />} />
     </Routes>
   )
 }

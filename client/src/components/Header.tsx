@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Header() {
+const { logout, user } = useAuth();
+
     return (
         <header className="bg-zinc-900 border-b border-zinc-700 px-6 py-4 flex items-center justify-between">
             <div>
@@ -21,6 +24,13 @@ export default function Header() {
                 <Link to="/service-orders" className="text-zinc-300 hover:text-white text-sm transition-colors">
                     Ordens
                 </Link>
+                <span className='text-zinc-500 text-sm'>{user?.name}</span>
+                <button
+                    className='bg-red-600 hover:bg-red-500 text-white text-sm rounded-lg px-3 py-2 transition colors'
+                    onClick={logout}
+                >
+                    Sair
+                </button>
             </nav>
         </header>
     )
