@@ -1,0 +1,45 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id            Int    @id @default(autoincrement())
+  name          String
+  email         String @unique
+  password      String
+  serviceOrders ServiceOrder[]
+}
+
+model Client {
+  id            Int    @id @default(autoincrement())
+  name          String
+  phone         String
+  email         String
+  serviceOrders ServiceOrder[]
+}
+
+model ServiceOrder {
+  id        Int      @id @default(autoincrement())
+  device    String
+  issue     String
+  status    String   @default("open")
+  createdAt DateTime @default(now())
+  client    Client   @relation(fields: [clientId], references: [id])
+  clientId  Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+}

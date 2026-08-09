@@ -1,0 +1,218 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: api-tarefas
+meta:
+  id: wrk_9c60680771ac4b3480b0601100a4bcd4
+  created: 1785039281796
+  modified: 1785039281796
+  description: ""
+collection:
+  - name: Accounts
+    meta:
+      id: fld_5890633abf94440ea6e899fdba328c8d
+      created: 1786246823111
+      modified: 1786246827933
+      sortKey: -1786246823312
+      description: ""
+    children:
+      - url: http://localhost:3030/auth/register
+        name: POST /auth/register
+        meta:
+          id: req_89209c4221264779881f703d3112f4c0
+          created: 1786231174251
+          modified: 1786289935219
+          isPrivate: false
+          description: ""
+          sortKey: -1786246830441
+        method: POST
+        body:
+          mimeType: application/json
+          text: '{ "name": "Teste", "email": "teste@email.com", "password": "teste" }'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3030/auth/login
+        name: POST /auth/login
+        meta:
+          id: req_f2d4cfa9faa746afbe4046153a93b096
+          created: 1786231539505
+          modified: 1786290104513
+          isPrivate: false
+          description: ""
+          sortKey: -1786246830341
+        method: POST
+        body:
+          mimeType: application/json
+          text: '{ "email": "teste@email.com", "password": "teste" }'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3030/auth/me
+        name: GET /auth/me
+        meta:
+          id: req_6104433912a8440cbd667d59d32db0f5
+          created: 1786231627428
+          modified: 1786246862500
+          isPrivate: false
+          description: ""
+          sortKey: -1786246830291
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3030/auth/logout
+        name: POST /auth/logout
+        meta:
+          id: req_345208012e4d4d7cb03a8d1036cd580e
+          created: 1786231702206
+          modified: 1786246854568
+          isPrivate: false
+          description: ""
+          sortKey: -1786246830241
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Tasks
+    meta:
+      id: fld_c85516865af545fdbad304158142868a
+      created: 1786246873055
+      modified: 1786246878922
+      sortKey: -1785040182650
+      description: ""
+    children:
+      - url: http://localhost:3030/service-orders
+        name: GET /service-orders
+        meta:
+          id: req_7517f4ad4e3a4a5bb2362566abad7161
+          created: 1785039298985
+          modified: 1786246887889
+          isPrivate: false
+          description: ""
+          sortKey: -1786246883181
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3030/service-orders/2
+        name: GET /service-orders/:id
+        meta:
+          id: req_de07037ada3147e8b7692cc9a08ed3f0
+          created: 1785039940236
+          modified: 1786246891013
+          isPrivate: false
+          description: ""
+          sortKey: -1786246883081
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3030/service-orders/2
+        name: DELETE /service-orders/:id
+        meta:
+          id: req_2d11603e566f4fd49696068f550eda7b
+          created: 1785040182750
+          modified: 1786246894073
+          isPrivate: false
+          description: ""
+          sortKey: -1786246882981
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_4a55b974fb1ddf30ce244283bda6ab6c2137965b
+    created: 1785039281798
+    modified: 1786290114082
+  cookies:
+    - id: 9d3cd5eb-66a4-4246-b639-27d511f58514
+      key: token
+      value: ""
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: false
+      hostOnly: true
+environments:
+  name: Base Environment
+  meta:
+    id: env_4a55b974fb1ddf30ce244283bda6ab6c2137965b
+    created: 1785039281797
+    modified: 1785039281797
+    isPrivate: false
