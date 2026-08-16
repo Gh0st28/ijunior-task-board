@@ -1,6 +1,7 @@
 import 'dotenv/config';
-import express from 'express';
 import { app } from './config/expressConfig';
+
+const port = Number(process.env.PORT) || 3030;
 
 if (!process.env.JWT_SECRET) {
   throw new Error('JWT_SECRET não definido nas variáveis de ambiente')
@@ -10,5 +11,5 @@ if (!process.env.DATABASE_URL) {
 }
 
 app.listen(3030, () => {
-  console.log('🚀 Servidor rodando na porta 3030');
-});
+  console.log(`🚀 Servidor rodando na porta ${port}`);
+})
